@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agosto Laranja - Conscientização sobre a Esclerose Múltipla</title>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-orange: #ff6b00;
+      --dark-orange: #e05300;
+      --light-orange: #fff4ec;
+      --accent-orange: #ffe3d1;
+      --gradient-orange: linear-gradient(135deg, #ff7e1d 0%, #e64a00 100%);
+      --text-dark: #2c3e50;
+      --text-muted: #64748b;
+      --bg-white: #ffffff;
+      --card-shadow: 0 12px 30px rgba(255, 107, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      background-color: #fdfdfd;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar estilo minimalista inspirado na imagem */
+    header {
+      background-color: var(--bg-white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark-orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    /* Hero Banner (Inspirado exatamente na imagem fornecida) */
+    .hero {
+      background: var(--gradient-orange);
+      color: white;
+      padding: 5.5rem 1rem 6.5rem;
+      text-align: center;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+      box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .hero-text {
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    /* Títulos de Seção */
+    .section-title {
+      text-align: center;
+      margin: 4.5rem 0 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--dark-orange);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: var(--primary-orange);
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
+
+    /* Cards de Informação */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      border-top: 5px solid var(--primary-orange);
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .info-card i {
+      font-size: 2.5rem;
+      color: var(--primary-orange);
+      margin-bottom: 1rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark-orange);
+    }
+
+    /* Caixa Container Universal para Ferramentas / Jogos */
+    .tool-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--card-shadow);
+      border: 2px solid var(--accent-orange);
+      margin-bottom: 2rem;
+    }
+
+    /* --- JOGUINHO: DESAFIO MITO OU VERDADE (GAME) --- */
+    .game-container {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .game-score-board {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--light-orange);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      color: var(--dark-orange);
+      margin-bottom: 20px;
+    }
+
+    .game-card {
+      background: #fafafa;
+      border: 2px dashed var(--primary-orange);
+      padding: 30px 20px;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game-card p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .game-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .btn-game {
+      padding: 12px 35px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-game:hover { transform: scale(1.05); }
+    .btn-mito { background-color: #ef4444; color: white; }
+    .btn-verdade { background-color: #22c55e; color: white; }
+
+    /* Mapeador de Sintomas */
+    .symptom-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .symptom-btn {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+
+    .symptom-btn.active {
+      background: var(--primary-orange);
+      color: white;
+      border-color: var(--primary-orange);
+    }
+
+    .symptom-result {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      border-radius: 12px;
+      background-color: var(--light-orange);
+      border-left: 5px solid var(--primary-orange);
+      display: none;
+    }
+
+    /* Galeria */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      height: 220px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.1); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      color: white;
+      padding: 12px;
+      font-size: 0.88rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Vídeos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    .video-info { padding: 1.5rem; }
+    .video-info h3 { color: var(--dark-orange); margin-bottom: 0.5rem; }
+
+    /* Quiz Dinâmico */
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 14px 20px;
+      margin: 10px 0;
+      background-color: var(--light-orange);
+      border: 2px solid #ffd8be;
+      border-radius: 12px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-dark);
+    }
+
+    .quiz-option:hover {
+      background-color: var(--primary-orange);
+      color: white;
+      border-color: var(--primary-orange);
+    }
+
+    .quiz-feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gradient-orange);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover { transform: scale(1.03); }
+
+    /* Footer */
+    footer {
+      background-color: #1e293b;
+      color: white;
+      margin-top: 5rem;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--primary-orange);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul { list-style: none; }
+    .footer-section ul li { margin-bottom: 8px; color: #94a3b8; }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #334155;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-subtitle { font-size: 2.8rem; }
+      .hero-title { font-size: 2.2rem; }
+      .video-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .game-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <i class="fa-solid fa-ribbon"></i> Agosto Laranja
+      </div>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formas">Tipos de EM</a></li>
+        <li><a href="#jogo">Joguinho</a></li>
+        <li><a href="#sintomas">Sintomas</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#autoria">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Banner (Idêntico ao estilo da foto de referência) -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-subtitle">Bem-vindos ao</div>
+      <h1 class="hero-title">Agosto Laranja!</h1>
+      <p class="hero-text">
+        Desde 2014, o mês de agosto ganhou cor em prol da conscientização da doença autoimune que mais acomete jovens adultos em todo o mundo: a Esclerose Múltipla (EM). O Agosto Laranja foi criado com o objetivo de ser um movimento coletivo para desmistificar essa condição crônica de doença e fomentar o diagnóstico precoce, mais qualidade de vida, acolhimento, respeito e dignidade para quem convive com a patologia, seus amigos e familiares. Apoie o Agosto Laranja você também! <strong>#InformaçãoÉOMelhorRemédio e salva vidas!</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Sobre a Esclerose Múltipla -->
+  <section id="sobre" class="container">
+    <div class="section-title">
+      <h2>Sobre a Esclerose Múltipla</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>O que é?</h3>
+        <p>Uma doença neurológica, crônica e autoimune. O próprio sistema imunológico ataca por engano a bainha de mielina dos neurônios no Sistema Nervoso Central.</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-users"></i>
+        <h3>A Quem Afeta?</h3>
+        <p>Acomete principalmente jovens adultos, entre 20 e 40 anos, sendo cerca de três vezes mais prevalente no público feminino.</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-dna"></i>
+        <h3>Causas & Fatores</h3>
+        <p>Causa exata desconhecida, mas envolve predisposição genética e fatores ambientais (baixa vitamina D, infecção pelo vírus Epstein-Barr e tabagismo).</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-capsules"></i>
+        <h3>Tratamento</h3>
+        <p>Não há cura definitiva, mas medicamentos modernos (imunomoduladores e imunossuntores) previnem novos surtos e evitam sequelas motoras.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ADICIONADA: Formas Clínicas da Esclerose Múltipla -->
+  <section id="formas" class="container">
+    <div class="section-title">
+      <h2>Formas Clínicas da Doença</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card" style="border-top-color: #f97316;">
+        <i class="fa-solid fa-wave-square"></i>
+        <h3>Remitente-Recorrente (EMRR)</h3>
+        <p>A forma mais comum (cerca de 85% dos casos). Ocorre através de surtos bem definidos com recuperação total ou parcial, seguidos por períodos de estabilidade.</p>
+      </div>
+      <div class="info-card" style="border-top-color: #ea580c;">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Primária Progressiva (EMPP)</h3>
+        <p>Acomete cerca de 10 a 15% dos pacientes. Caracterizada por um acúmulo gradual e progressivo de sintomas desde o início, sem surtos claramente delimitados.</p>
+      </div>
+      <div class="info-card" style="border-top-color: #c2410c;">
+        <i class="fa-solid fa-arrow-trend-up"></i>
+        <h3>Secundária Progressiva (EMSP)</h3>
+        <p>Pode se desenvolver após a fase Remitente-Recorrente, onde a recuperação dos surtos torna-se incompleta e há uma progressão lenta e contínua das limitações.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOGUINHO INTERATIVO: MITO OU VERDADE EXPRESS -->
+  <section id="jogo" class="container">
+    <div class="section-title">
+      <h2>Desafio</h2>
+    </div>
+    <div class="tool-box">
+      <div class="game-container">
+        <div class="game-score-board">
+          <span><i class="fa-solid fa-gamepad"></i></span>
+          <span>Pontuação: <span id="game-score">0</span> pts</span>
+        </div>
+        
+        <div id="game-play-area">
+          <div class="game-card">
+            <p id="game-statement">Clique em "Começar o Jogo" para iniciar!</p>
+          </div>
+          
+          <div class="game-btns" id="game-action-btns" style="display: none;">
+            <button class="btn-game btn-mito" onclick="answerGame(false)">MITO</button>
+            <button class="btn-game btn-verdade" onclick="answerGame(true)">VERDADE</button>
+          </div>
+
+          <button id="btn-start-game" class="btn-primary" onclick="startGame()">Começar o Jogo!</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapeador de Sintomas -->
+  <section id="sintomas" class="container">
+    <div class="section-title">
+      <h2>Mapeador de Sintomas</h2>
+    </div>
+    <div class="tool-box">
+      <p><strong>Clique nos sinais abaixo para entender a relação deles com a Esclerose Múltipla:</strong></p>
+      <div class="symptom-tags">
+        <button class="symptom-btn" onclick="toggleSymptom(this, 'Fadiga intensa e desproporcional às atividades diárias, sendo um dos sintomas mais comuns.')">Fadiga Excessiva</button>
+        <button class="symptom-btn" onclick="toggleSymptom(this, 'Visão embaçada, dupla ou perda momentânea de visão com dor ocular (Neurite Óptica).')">Alterações Visuais</button>
+        <button class="symptom-btn" onclick="toggleSymptom(this, 'Sensação de formigamento, dormência ou falta de sensibilidade nos braços ou pernas.')">Dormência e Formigamento</button>
+        <button class="symptom-btn" onclick="toggleSymptom(this, 'Perda de força nos membros, perda de equilíbrio ou tontura constante.')">Fraqueza & Desequilíbrio</button>
+        <button class="symptom-btn" onclick="toggleSymptom(this, 'Lapsos de memória, dificuldade de concentração e raciocínio mais lento.')">Alterações Cognitivas</button>
+      </div>
+      <div id="symptom-info" class="symptom-result">
+        <i class="fa-solid fa-circle-info"></i> <span id="symptom-text">Selecione um sintoma acima para ver detalhes.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria de 8 Fotos -->
+  <section id="galeria" class="container">
+    <div class="section-title">
+      <h2>Galeria de Conscientização</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Exame Neurológico">
+        <div class="gallery-caption">1. Diagnóstico por Imagem</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Cuidado e Apoio">
+        <div class="gallery-caption">2. Acolhimento e Cuidado</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Pesquisa Científica">
+        <div class="gallery-caption">3. Avanço Científico</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80" alt="Equipe Multidisciplinar">
+        <div class="gallery-caption">4. Atendimento Médico</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?auto=format&fit=crop&w=600&q=80" alt="Qualidade de Vida">
+        <div class="gallery-caption">5. Fisioterapia e Exercícios</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Apoio Familiar">
+        <div class="gallery-caption">6. Rede de Apoio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="União">
+        <div class="gallery-caption">7. Integração Comunitária</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80" alt="Esperança e Futuro">
+        <div class="gallery-caption">8. Esperança e Vida Ativa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeos Educativos -->
+  <section id="videos" class="container">
+  <div class="section-title">
+    <h2>Vídeos Educativos</h2>
+  </div>
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/CGXhS8PWwjs" 
+          title="Entendendo a Esclerose Múltipla" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-info">
+        <h3>Entendendo a Esclerose Múltipla</h3>
+        <p>Veja como ocorre o ataque à bainha de mielina e a ação dos tratamentos modernos.</p>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/UMPTPV62iPg" 
+          title="Superação e Qualidade de Vida" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-info">
+        <h3>Superação e Qualidade de Vida</h3>
+        <p>Relatos e orientações sobre como viver com qualidade com acompanhamento adequado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Quiz Final -->
+  <section id="quiz" class="container">
+    <div class="section-title">
+      <h2>Quiz de Conhecimento</h2>
+    </div>
+    <div class="tool-box" style="max-width: 800px; margin: 0 auto;">
+      <div id="quiz-box">
+        <h3 id="question-text" style="margin-bottom: 1.5rem; color: var(--dark-orange);">Carregando pergunta...</h3>
+        <div id="options-container"></div>
+        <div id="feedback" class="quiz-feedback"></div>
+      </div>
+      <div id="quiz-result" style="display: none; text-align: center;">
+        <i class="fa-solid fa-trophy" style="font-size: 3.5rem; color: var(--primary-orange); margin-bottom: 1rem;"></i>
+        <h2>Quiz Concluído!</h2>
+        <p id="score-text" style="font-size: 1.2rem; margin: 1.5rem 0;"></p>
+        <button onclick="restartQuiz()" class="btn-primary">Tentar Novamente</button>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer id="autoria">
+    <div class="container footer-grid">
+      <div class="footer-section">
+        <h4><i class="fa-solid fa-school"></i> Instituição de Ensino</h4>
+        <p><strong>Escola:</strong> Senai</p>
+        <p><strong>Disciplina:</strong> T.I</p>
+        <p><strong>Ano / Turma:</strong> 3º Ano do Ensino Médio</p>
+      </div>
+      <div class="footer-section">
+        <h4><i class="fa-solid fa-chalkboard-user"></i> Corpo Docente</h4>
+        <ul>
+          <li>Prof. Adriano</li>
+          <li>Prof. Leandro</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><i class="fa-solid fa-users"></i> Autoria do Projeto (Squad)</h4>
+        <ul>
+          <li> Letícia (Agosto Laranja)</li>
+          <li> Isabelli (Agosto Dourado)</li>
+          <li> Anna (Agosto Lilás)</li>
+          <li> Melanie (Agosto Verde)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Campanhas de Saúde de Agosto. Conscientização e Informação de Qualidade.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts Interativos e Lógica dos Jogos -->
+  <script>
+    // ----------------------------------------------------
+    // 1. JOGUINHO: DESAFIO MITO OU VERDADE EXPRESS
+    // ----------------------------------------------------
+    const gameData = [
+      { statement: "Esclerose Múltipla é uma doença contagiosa.", isTrue: false },
+      { statement: "A doença afeta principalmente o público jovem adulto.", isTrue: true },
+      { statement: "Praticar atividades físicas sob orientação é recomendado para quem tem EM.", isTrue: true },
+      { statement: "A Esclerose Múltipla é o mesmo que Alzheimer.", isTrue: false },
+      { statement: "O diagnósto precoce reduz o risco de incapacidades a longo prazo.", isTrue: true },
+      { statement: "A Esclerose Múltipla afeta apenas idosos.", isTrue: false }
+    ];
+
+    let gameIndex = 0;
+    let gameScore = 0;
+
+    function startGame() {
+      gameIndex = 0;
+      gameScore = 0;
+      document.getElementById('game-score').innerText = gameScore;
+      document.getElementById('btn-start-game').style.display = 'none';
+      document.getElementById('game-action-btns').style.display = 'flex';
+      nextGameQuestion();
+    }
+
+    function nextGameQuestion() {
+      if (gameIndex < gameData.length) {
+        document.getElementById('game-statement').innerText = gameData[gameIndex].statement;
+      } else {
+        document.getElementById('game-statement').innerHTML = `🎉 <strong>Fim do Jogo!</strong> Você marcou <strong>${gameScore}</strong> de ${gameData.length * 10} pontos possíveis!`;
+        document.getElementById('game-action-btns').style.display = 'none';
+        document.getElementById('btn-start-game').innerText = "Jogar Novamente";
+        document.getElementById('btn-start-game').style.display = 'inline-block';
+      }
+    }
+
+    function answerGame(userAnswer) {
+      if (userAnswer === gameData[gameIndex].isTrue) {
+        gameScore += 10;
+        document.getElementById('game-score').innerText = gameScore;
+        alert("✨ Correto!");
+      } else {
+        alert("❌ Ops, incorreto!");
+      }
+      gameIndex++;
+      nextGameQuestion();
+    }
+
+    // ----------------------------------------------------
+    // 2. MAPEADOR DE SINTOMAS
+    // ----------------------------------------------------
+    function toggleSymptom(element, infoText) {
+      const allBtns = document.querySelectorAll('.symptom-btn');
+      allBtns.forEach(btn => btn.classList.remove('active'));
+      
+      element.classList.add('active');
+      const infoBox = document.getElementById('symptom-info');
+      const textSpan = document.getElementById('symptom-text');
+      
+      infoBox.style.display = 'block';
+      textSpan.innerHTML = "<strong>Entenda o sinal:</strong> " + infoText + " <em>Lembre-se: os sintomas variam de pessoa para pessoa.</em>";
+    }
+
+    // ----------------------------------------------------
+    // 3. QUIZ TRADICIONAL
+    // ----------------------------------------------------
+    const questions = [
+      {
+        question: "1. A Esclerose Múltipla é uma doença contagiosa?",
+        options: [
+          "Sim, transmite pelo ar.",
+          "Não, é uma doença autoimune e não contagiosa.",
+          "Sim, transmite pelo contato físico.",
+          "Apenas no período de surtos."
+        ],
+        correct: 1,
+        explanation: "Correto! A Esclerose Múltipla NÃO é contagiosa. É uma condição autoimune."
+      },
+      {
+        question: "2. Qual é a faixa etária em que ocorrem mais diagnósticos de EM?",
+        options: [
+          "Crianças de 0 a 10 anos",
+          "Idosos acima de 75 anos",
+          "Jovens adultos entre 20 e 40 anos",
+          "Apenas recém-nascidos"
+        ],
+        correct: 2,
+        explanation: "Exato! A maioria dos diagnósticos de EM acontece em jovens adultos de 20 a 40 anos."
+      },
+      {
+        question: "3. Qual é o principal componente do neurônio atacado pelo sistema imune na EM?",
+        options: [
+          "A Bainha de Mielina",
+          "A membrana estomacal",
+          "Os alvéolos pulmonares",
+          "Os glóbulos vermelhos"
+        ],
+        correct: 0,
+        explanation: "Perfeito! O sistema imune ataca a bainha de mielina no Sistema Nervoso Central."
+      },
+      {
+        question: "4. Qual é o foco principal da campanha Agosto Laranja?",
+        options: [
+          "Comercializar remédios nas farmácias",
+          "Conscientizar sobre a EM, combater estigmas e incentivar diagnóstico precoce",
+          "Promover esportes de aventura",
+          "Distribuir suplementos vitamínicos"
+        ],
+        correct: 1,
+        explanation: "Muito bem! O objetivo é disseminar conhecimento verdadeiro e acelerar diagnósticos."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let quizScore = 0;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById("question-text").innerText = q.question;
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.innerHTML = "";
+
+      const feedback = document.getElementById("feedback");
+      feedback.style.display = "none";
+
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.className = "quiz-option";
+        btn.innerText = opt;
+        btn.onclick = () => selectOption(index);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function selectOption(selectedIndex) {
+      const q = questions[currentQuestion];
+      const feedback = document.getElementById("feedback");
+      feedback.style.display = "block";
+
+      if (selectedIndex === q.correct) {
+        quizScore++;
+        feedback.style.backgroundColor = "#dcfce7";
+        feedback.style.color = "#166534";
+        feedback.innerHTML = "✨ " + q.explanation;
+      } else {
+        feedback.style.backgroundColor = "#fee2e2";
+        feedback.style.color = "#991b1b";
+        feedback.innerHTML = "❌ Resposta incorreta! " + q.explanation;
+      }
+
+      const buttons = document.querySelectorAll(".quiz-option");
+      buttons.forEach(btn => btn.disabled = true);
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      }, 2300);
+    }
+
+    function showResult() {
+      document.getElementById("quiz-box").style.display = "none";
+      const resultBox = document.getElementById("quiz-result");
+      resultBox.style.display = "block";
+      document.getElementById("score-text").innerText = `Você acertou ${quizScore} de ${questions.length} perguntas sobre Esclerose Múltipla!`;
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      quizScore = 0;
+      document.getElementById("quiz-box").style.display = "block";
+      document.getElementById("quiz-result").style.display = "none";
+      loadQuestion();
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>
